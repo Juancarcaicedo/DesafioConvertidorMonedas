@@ -26,7 +26,6 @@ public class Menu {
                 System.out.println("7. Salir");
                 System.out.print("Elige una opción: ");
                 option = scanner.nextInt();
-
                 switch (option) {
                     case 1:
                         convertirMoneda("USD", "ARS", scanner);
@@ -54,27 +53,22 @@ public class Menu {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Error: debes ingresar números, no letras.");
-                scanner.next(); // Limpia el input
+                scanner.next();
             } catch (Exception e) {
                 System.out.println("Ocurrió un error: " + e.getMessage());
             }
         } while (option != 7);
         scanner.close();
     }
-
     private void convertirMoneda(String baseCurrency, String targetCurrency, Scanner scanner) {
         try {
             System.out.print("Ingresa la cantidad de " + baseCurrency + " que deseas convertir: ");
             double cantidad = scanner.nextDouble();
-
-            // Llama al método de conversión de monto
             double resultado = currencyConverter.convertAmount(baseCurrency, targetCurrency, cantidad);
-
-            // Muestra el resultado de la conversión
             System.out.println(cantidad + " " + baseCurrency + " equivale a " + resultado + " " + targetCurrency);
         } catch (InputMismatchException e) {
             System.out.println("Error: debes ingresar un número válido.");
-            scanner.next(); // Limpia el input
+            scanner.next();
         } catch (Exception e) {
             System.out.println("Error al realizar la conversión: " + e.getMessage());
         }

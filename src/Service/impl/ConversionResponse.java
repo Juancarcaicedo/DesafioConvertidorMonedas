@@ -5,8 +5,6 @@ public class ConversionResponse {
     private String target_code;
     private double conversion_rate;
     private double conversion_result;
-
-    // Getters y Setters
     public String getBase_code() {
         return base_code;
     }
